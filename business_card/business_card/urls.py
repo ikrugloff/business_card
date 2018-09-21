@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main_page.views import main_page_view
+from pictures.views import pictures_view
 
 urlpatterns = [
-    path('business_card/', include('business_card.urls')),  # TODO: necessary to explain include()
+    # path('business_card/', include('business_card.urls')),  # TODO: necessary to explain include()
     path('admin/', admin.site.urls),
-    path('', main_page_view)
+    path('', main_page_view, name='index'),
+    path('pictures/', pictures_view)
 ]

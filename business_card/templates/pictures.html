@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pictures</title>
+</head>
+<body>
+    {% load static %}
+    <img src="{% static 'pictures/me.jpg' %}" style="width:555px;height:540px;">
+    <a href="{% url 'index' %}">Main page</a>
+</body>
+</html>
