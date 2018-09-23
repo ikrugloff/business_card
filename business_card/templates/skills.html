@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2>My skills are {{ my_skills }}</h2>
-    {% if my_skills %}
+    {% if my_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
         {% for skill in my_skills %}
             {{ skill }}
             <!--Привет {{ skill }}-->
