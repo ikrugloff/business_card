@@ -5,6 +5,17 @@
     <title>My skills</title>
 </head>
 <body>
+    <h2>My skills are {{ my_skills }}</h2>
+    {% if my_skills %}
+        {% for skill in my_skills %}
+            {{ skill }}
+            <!--Привет {{ skill }}-->
+            <br>
+        {% endfor %}
+    {% else %}
+        Where's my skills?!
+        <br>
+    {% endif %}
     <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
     <a href="{% url 'index' %}">Main page</a>
 </body>
