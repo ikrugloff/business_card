@@ -6,6 +6,7 @@
 </head>
 <body>
     <h2>My skills are {{ my_skills }}</h2>
+    <h2>My skills are {{ my_skills | upper }}</h2> <!--an example of using built-in filter(upper)-->
     {% if my_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
         {% for skill in my_skills %}
             {{ skill }}
@@ -16,6 +17,8 @@
         Where's my skills?!
         <br>
     {% endif %}
+    The number of skills overwhelmed by me = {{ my_skills | length }} <!--an example of using built-in filter(length)-->
+    <br>
     <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
     <a href="{% url 'index' %}">Main page</a>
 </body>
