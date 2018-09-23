@@ -5,6 +5,7 @@
     <title>Pictures</title>
 </head>
 <body>
+    <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
     {% load static %}
     <img src="{% static 'pictures/me.jpg' %}" style="width:555px;height:540px;">
     <a href="{% url 'index' %}">Main page</a>
