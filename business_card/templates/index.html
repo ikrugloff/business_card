@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
     <style>
-        body {
+        body, html {
+            height: 100%;
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
 
         .hero-image {
-            background-image: url("/static/main_page/bg_01_main_page_san_francisco.jpg");
-            background-color: #cccccc;
-            height: 800px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/main_page/bg_01_main_page_san_francisco.jpg");
+            height: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -62,12 +62,12 @@
 
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size:50px">I am Ilia Kruglov</h1>
+            <h1 style="font-size:50px">I am {{ first_name }} {{ last_name }}</h1>
             <h3>And I'm a Programmer</h3>
-            <a href="/about/" class="button button_style"><b>About me</b></a> <!--<button>About me</button>-->
-            <a href="/skills/" class="button button_style"><b>My skills</b></a> <!--<button>My skills</button>-->
-            <a href="/contacts/" class="button button_style"><b>Contacts</b></a> <!--<button>Contacts</button>-->
-            <a href="/pictures/" class="button button_style"><b>Pictures</b></a> <!--<button>Pictures</button>-->
+            <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a> <!--<button>About me</button>-->
+            <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a> <!--<button>My skills</button>-->
+            <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a> <!--<button>Contacts</button>-->
+            <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a> <!--<button>Pictures</button>-->
         </div>
     </div>
 
