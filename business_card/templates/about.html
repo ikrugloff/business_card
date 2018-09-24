@@ -2,19 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About me</title>
+    <style>
+        html {
+          background: url("/static/about/bg_02_about_new_york.jpg") no-repeat center fixed;
+          background-size: cover;
+          width: 40%
+        }
+
+        body {
+          color: white;
+        }
+
+        .button {
+            background-color: Transparent;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button_style {
+            background-color: Transparent;
+            color: white;
+            border: 2px solid #FF00FF;
+        }
+
+        .button_style:hover {
+            background-color: #FF00FF;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        <p style="font-family:'Courier New'">Hello stranger! Let's get acquainted!</p>
-    </h1>
-    <br>
-    <h2>My name is {{ first_name }} {{ last_name }}. Nice to see you on my site).</h2>
-    <h2>To get to know each other better please read this little cover letter about me.</h2>
-    <p>Small cover letter will be here.</p>
-    <h2>Also you can find information about me on these resources:</h2>
-    <p>Links to my git account, hh.ru account and instagram account will be here.</p>
-    <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
-    <a href="{% url 'index' %}">Main page</a>
+    <!--<h1>-->
+        <!--<p style="font-family:'Courier New'">Hello stranger! Let's get acquainted!</p>-->
+    <!--</h1>-->
+    <!--<br>-->
+    <!--<h2>My name is {{ first_name }} {{ last_name }}. Nice to see you on my site).</h2>-->
+    <!--<h2>To get to know each other better please read this little cover letter about me.</h2>-->
+    <!--<p>Small cover letter will be here.</p>-->
+    <!--<h2>Also you can find information about me on these resources:</h2>-->
+    <!--<p>Links to my git account, hh.ru account and instagram account will be here.</p>-->
+    <!--<a href="/">Main page</a> simple html backward link w/o Django-->
+    <div style="background-color:rgba(0, 0, 0, 0.4);">
+        <div>
+            <!--<h1>-->
+                <!--<p style="font-family:'Courier New'">Hello stranger! Let's get acquainted!</p>-->
+            <!--</h1>-->
+            <h2>Nice to see you on my site!</h2>
+            <h2>To get to know each other better please read this little cover letter about me.</h2>
+            <p>Small cover letter will be here.</p>
+            <h2>Also you can find information about me on these resources:</h2>
+            <p>Links to my git account, hh.ru account and instagram account will be here.</p>
+        </div>
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a> <!--<a href="{% url 'index' %}">Main page</a>-->
 </body>
 </html>
