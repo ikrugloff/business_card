@@ -2,27 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My skills</title>
+    <style>
+        html {
+          background: url("/static/skills/bg_03_skills_los_angeles.jpg") no-repeat center fixed;
+          background-size: cover;
+          width: 40%
+        }
+
+        body {
+          color: white;
+        }
+
+        .button {
+            background-color: Transparent;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button_style {
+            background-color: Transparent;
+            color: white;
+            border: 2px solid #F0F8FF;
+        }
+
+        .button_style:hover {
+            background-color: #F0F8FF;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        <p style="font-family:'Courier New'">My skills</p>
-    </h1>
-    <h2>My skills are {{ my_skills }}</h2>
-    <h2>My skills are {{ my_skills | upper }}</h2> <!--an example of using built-in filter(upper)-->
-    {% if my_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
-        {% for skill in my_skills %}
-            {{ skill }}
-            <!--Привет {{ skill }}-->
-            <br>
-        {% endfor %}
-    {% else %}
-        Where's my skills?!
-        <br>
-    {% endif %}
-    The number of skills overwhelmed by me = {{ my_skills | length }} <!--an example of using built-in filter(length)-->
-    <br>
-    <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
-    <a href="{% url 'index' %}">Main page</a>
+    <div style="background-color:rgba(0, 0, 0, 0.5);">
+        <div>
+            <p>
+                <h1>
+                    <p style="font-family:'Courier New'">My skills</p>
+                </h1>
+                <h2>My skills are {{ my_skills }}</h2>
+                <h2>My skills are {{ my_skills | upper }}</h2> <!--an example of using built-in filter(upper)-->
+                {% if my_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
+                    {% for skill in my_skills %}
+                        {{ skill }}
+                        <!--Привет {{ skill }}-->
+                        <br>
+                    {% endfor %}
+                {% else %}
+                    Where's my skills?!
+                    <br>
+                {% endif %}
+                The number of skills overwhelmed by me = {{ my_skills | length }} <!--an example of using built-in filter(length)-->
+                <br>
+                <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
+            </p>
+        </div>
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 </body>
 </html>
