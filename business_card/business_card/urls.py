@@ -25,8 +25,8 @@ urlpatterns = [
     # path('business_card/', include('business_card.urls')),  # TODO: necessary to explain include()
     path('admin/', admin.site.urls),
     path('', main_page_view, name='index'),
-    path('about/', about_view),
-    path('skills/', skills_view),
-    path('contacts/', contacts_view),
-    path('pictures/', pictures_view)
+    path('about/', about_view, name='about'),
+    path('skills/', skills_view, name='skills'),
+    path('contacts/', contacts_view, name='contacts'),
+    path('pictures/', pictures_view, name='pictures')
 ]
