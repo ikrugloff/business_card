@@ -62,7 +62,7 @@
 
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size:50px">I am {{ first_name }} {{ last_name }}</h1>
+            <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
             <h3>And I'm a Programmer</h3>
             <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a> <!--<button>About me</button>-->
             <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a> <!--<button>My skills</button>-->
