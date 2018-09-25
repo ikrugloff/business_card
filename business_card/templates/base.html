@@ -1,10 +1,43 @@
+{#Любая страница проекта должна наследоваться от данной страницы, или от ее потомков#}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>
+        {% block title %}
+            BASE TEMPLATE
+        {% endblock %}
+    </title>
+    {% block css %}
+{#Тут подключаем общие для всего сайта таблицы стилей #}
+        <link rel="stylesheet" href="/static/css/style.css"/>
+    {% endblock %}
+    <meta charset="utf-8">
 </head>
 <body>
-
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            {% block header %}
+                <h1>"About me"</h1>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row">
+        {% block menu %}
+            |<a href="/works">Работа</a>|<a href="/teach">Учеба</a> |
+        {% endblock %}
+    </div>
+    <div class="row">
+        {% block content %}
+            Текст базового шаблона(просто для демонстрации)
+        {% endblock %}
+    </div>
+    <div class="modal-footer">
+        {% block footer %}
+            &copy; 2016 Booblegum
+        {% endblock %}
+    </div>
+</div>
 </body>
 </html>
