@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My skills</title>
+    <style>
+        html {
+          background: url("/static/skills/bg_03_skills_los_angeles.jpg") no-repeat center fixed;
+          background-size: cover;
+          width: 35%
+        }
+
+        body {
+          color: white;
+        }
+
+        .button {
+            background-color: Transparent;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button_style {
+            background-color: Transparent;
+            color: white;
+            border: 2px solid #F68F62;
+        }
+
+        .button_style:hover {
+            background-color: #F68F62;
+            color: white;
+        }
+
+        a {
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:rgba(0, 0, 0, 0.5);">
+        <div>
+            <p>
+                <!--<h1>-->
+                    <!--<p style="font-family:'Courier New'">My skills</p>-->
+                <!--</h1>-->
+                <!--<h2>My skills are {{ tech_skills }}</h2>-->
+                <!--<h2>My skills are {{ tech_skills | upper }}</h2> &lt;!&ndash;an example of using built-in filter(upper)&ndash;&gt;-->
+                <h3>
+                    <p>Technologies that I learned and use in development:</p>
+                </h3>
+                {% if tech_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
+                    <ol>
+                    {% for skill in tech_skills %}
+
+                        <li>{{ skill }}</li>
+
+                        <!--Привет {{ skill }}-->
+                    {% endfor %}
+                    </ol>
+                {% else %}
+                    Where's my skills?!
+                    <br>
+                {% endif %}
+                <h3>
+                    <p>List of the courses I have passed:</p>
+                </h3>
+                {% if finished_cources %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
+                    <ol>
+                    {% for course in finished_cources %}
+
+                        <li>{{ course }}</li>
+
+                        <!--Привет {{ skill }}-->
+                    {% endfor %}
+                    </ol>
+                {% else %}
+                    Where's my courses?!
+                    <br>
+                {% endif %}
+                <h3>
+                    <p>Source codes of my projects:</p>
+                </h3>
+                    <ol>
+                        <li><a href="https://github.com/ikrugloff/business_card">Portfolio site</a></li>
+                        <li><a href="https://github.com/ikrugloff/jim-messenger">Simple socket messenger</a></li>
+                        <li><a href="https://github.com/ikrugloff/passvault">Program for storing passwords</a></li>
+                    </ol>
+                <h3>
+                    <p>My curriculum vitae:</p>
+                </h3>
+                    <ul>
+                        <li><a href="https://nn.hh.ru/resume/d4298194ff03c8a7620039ed1f6c6e66747351">hh.ru resume</a></li>
+                    </ul>
+                <!--The number of skills overwhelmed by me = {{ tech_skills | length }} &lt;!&ndash;an example of using built-in filter(length)&ndash;&gt;-->
+                <!--<a href="/">Main page</a>--> <!--simple html backward link w/o Django-->
+            </p>
+        </div>
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+</body>
+</html>
