@@ -3,13 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="ikrugloff portfolio">  <!--What the reason to use <meta name=""-->
+    <meta name="author" content="Ilia Kruglov"> <!--What the reason to use <meta name=""-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         {% block title %}
             BASE TEMPLATE
         {% endblock %}
     </title>
     {% block css %}
-{#Тут подключаем общие для всего сайта таблицы стилей #}
+        {#Тут подключаем общие для всего сайта таблицы стилей #}
         <link rel="stylesheet" href="/static/css/style.css"/>
     {% endblock %}
     <meta charset="utf-8">
