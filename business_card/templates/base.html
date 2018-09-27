@@ -11,36 +11,79 @@
             BASE TEMPLATE
         {% endblock %}
     </title>
-    {% block css %}
-        {#Тут подключаем общие для всего сайта таблицы стилей #}
-        <link rel="stylesheet" href="/static/css/style.css"/>
-    {% endblock %}
-    <meta charset="utf-8">
+    <style>
+        {% block bodyhtml %}
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        {% endblock %}
+
+        {% block hero-image %}
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/main_page/bg_01_main_page_san_francisco.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        {% endblock %}
+
+        {% block hero-text %}
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+        {% endblock %}
+
+        {% block button %}
+        .button {
+            background-color: Transparent;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        {% endblock %}
+
+        {% block button_style %}
+        .button_style {
+            background-color: Transparent;
+            color: white;
+            border: 2px solid #FF00FF;
+        }
+        {% endblock %}
+
+        {% block button_hover %}
+        .button_style:hover {
+            background-color: #FF00FF;
+            color: white;
+        }
+        {% endblock %}
+
+        {% block a_link %}
+        a {
+            color: white
+        }
+        {% endblock %}
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="page-header">
-        <div class="row">
-            {% block header %}
-                <h1>"About me"</h1>
-            {% endblock %}
-        </div>
-    </div>
-    <div class="row">
-        {% block menu %}
-            |<a href="/works">Работа</a>|<a href="/teach">Учеба</a> |
-        {% endblock %}
-    </div>
-    <div class="row">
-        {% block content %}
-            Текст базового шаблона(просто для демонстрации)
-        {% endblock %}
-    </div>
-    <div class="modal-footer">
-        {% block footer %}
-            &copy; 2016 Booblegum
-        {% endblock %}
-    </div>
-</div>
+    {% block body %}
+        Main code
+    {% endblock %}
 </body>
 </html>

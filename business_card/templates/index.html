@@ -1,84 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="ikrugloff portfolio">  <!--What the reason to use <meta name=""-->
-    <meta name="author" content="Ilia Kruglov"> <!--What the reason to use <meta name=""-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main page</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+{% extends "base.html" %}
 
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/main_page/bg_01_main_page_san_francisco.jpg");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
+{% block title %}
+    Main page
+{% endblock %}
 
-        .hero-text {
-            text-align: center;
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-        }
+{% block bodyhtml %}
+    {{ block.super }}
+{% endblock %}
 
-        .button {
-            background-color: Transparent;
-            border: none;
-            color: white;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-            cursor: pointer;
-        }
+{% block hero-image %}
+    {{ block.super }}
+{% endblock %}
 
-        .button_style {
-            background-color: Transparent;
-            color: white;
-            border: 2px solid #FF00FF;
-        }
+{% block hero-text %}
+    {{ block.super }}
+{% endblock %}
 
-        .button_style:hover {
-            background-color: #FF00FF;
-            color: white;
-        }
-    </style>
-</head>
-<body>
+{% block button %}
+    {{ block.super }}
+{% endblock %}
 
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
-            <h3>And I'm a Programmer</h3>
-            <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a> <!--<button>About me</button>-->
-            <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a> <!--<button>My skills</button>-->
-            <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a> <!--<button>Contacts</button>-->
-            <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a> <!--<button>Pictures</button>-->
-        </div>
+{% block button_style %}
+    {{ block.super }}
+{% endblock %}
+
+{% block button_hover %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+<div class="hero-image">
+    <div class="hero-text">
+        <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
+        <h3>And I'm a Programmer</h3>
+        <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a> <!--<button>About me</button>-->
+        <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a> <!--<button>My skills</button>-->
+        <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a> <!--<button>Contacts</button>-->
+        <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a> <!--<button>Pictures</button>-->
     </div>
-
-    <!--<h1>-->
-        <!--<p style="font-family:'Courier New'">main_page(index.html)</p>-->
-    <!--</h1>-->
-    <!--<a href="/">Pictures</a>--> <!--link to main_page-->
-    <!--<a href="https://www.google.com">Google<br></a>--> <!--link to external sources-->
-    <!--<a href="/about/">About me<br></a>-->
-    <!--<a href="/skills/">My skills<br></a>-->
-    <!--<a href="/contacts/">Contacts<br></a>-->
-    <!--<a href="/pictures/">Pictures<br></a>-->
-</body>
-</html>
+</div>
+{% endblock %}

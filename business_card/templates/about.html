@@ -1,98 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About me</title>
-    <style>
-        html {
-          background: url("/static/about/bg_02_about_new_york.jpg") no-repeat center fixed;
-          background-size: cover;
-          width: 42%
-        }
+{% extends "base.html" %}
 
-        body {
-          color: white;
-        }
+{% block title %}
+    About me
+{% endblock %}
 
-        .button {
-            background-color: Transparent;
-            border: none;
-            color: white;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-            cursor: pointer;
-        }
+{% block bodyhtml %}
+    html {
+        background: url("/static/about/bg_02_about_new_york.jpg") no-repeat center fixed;
+        background-size: cover;
+        width: 42%
+    }
 
-        .button_style {
-            background-color: Transparent;
-            color: white;
-            border: 2px solid #F0F8FF;
-        }
+    body {
+        color: white;
+    }
+{% endblock %}
 
-        .button_style:hover {
-            background-color: #F0F8FF;
-            color: gray;
-        }
-    </style>
-</head>
-<body>
-    <!--<h1>-->
-        <!--<p style="font-family:'Courier New'">Hello stranger! Let's get acquainted!</p>-->
-    <!--</h1>-->
-    <!--<br>-->
-    <!--<h2>My name is {{ first_name }} {{ last_name }}. Nice to see you on my site).</h2>-->
-    <!--<h2>To get to know each other better please read this little cover letter about me.</h2>-->
-    <!--<p>Small cover letter will be here.</p>-->
-    <!--<h2>Also you can find information about me on these resources:</h2>-->
-    <!--<p>Links to my git account, hh.ru account and instagram account will be here.</p>-->
-    <!--<a href="/">Main page</a> simple html backward link w/o Django-->
-    <div style="background-color:rgba(0, 0, 0, 0.5);">
-        <div>
-            <p>Hello,<br>
-                <br>
-                My name is {{ first_name | title}}, I'm {{ age }} years old. I live and work in Moscow. My life value
-                and the main motivation is personal development and discovery of new opportunities in myself and the
-                world around me. In life and at work I like to communicate with people, to inspire new things, to get
-                new knowledge, to expand my horizons, to be proactive, to live in the present and go all the way.<br>
-                Today I work as an engineer for a cellular communication operator - PJSC "MegaFon". Things are going
-                well enough and often my boss puts me as an example of how to work other should. Maintenance, support
-                and implementation of industrial billing systems allowed me to get a broad view of how real-time systems
-                work, which a huge number of different subsystems need to interact seamlessly, in order to communication
-                is available to any person 24 hours a day, 7 days a week, understand the intricacies of configuring such
-                systems.<br>
-                Today I want to go further. Therefore, since 2017, I began to study such disciplines as relational
-                databases, Linux OS and software testing.
-                In early 2018, I enrolled at GeekBrains University at the department of web development on Python.
-                Experience in the company PJSC "MegaFon" and projects in GB University helped me to acquire the
-                following skills:<br>
-                <ul>
-                    <li>Full stack development;</li>
-                    <li>Project management as a team lead;</li>
-                    <li>Configuration and implementation of industrial billing systems;</li>
-                    <li>Automated testing.</li>
-                </ul>
-                With a list of technical skills and projects implemented by me, you can see on the page "My Skills"
-                (which includes links to my GitHub.com account and other internet resources on which information about
-                me is presented).<br>
-                Due to the fact that I'd like to be a developer in development company and dealing exclusively with my
-                favorite business I wrote this appeal. Change of professional activities and new tasks will help me to
-                apply the experience gained in the development, testing and supporting billing software. The transition
-                to a new stage is very important for me and for my family, my loved ones.<br>
-                I ask you to consider my appeal and give me a chance to come for an interview for a personal
-                acquaintance with your company.<br>
-                <br>
-                Yours faithfully,<br>
-                Ilia Kruglov
-            </p>
-        </div>
+{% block button %}
+    {{ block.super }}
+{% endblock %}
+
+{% block button_style %}
+    .button_style {
+        background-color: Transparent;
+        color: white;
+        border: 2px solid #F0F8FF;
+    }
+{% endblock %}
+
+{% block button_hover %}
+    .button_style:hover {
+        background-color: #F0F8FF;
+        color: gray;
+    }
+{% endblock %}
+
+{% block body %}
+<div style="background-color:rgba(0, 0, 0, 0.5);">
+    <div>
+        <p>Hello,<br>
+            <br>
+            My name is {{ first_name | title}}, I'm {{ age }} years old. I live and work in Moscow. My life value
+            and the main motivation is personal development and discovery of new opportunities in myself and the
+            world around me. In life and at work I like to communicate with people, to inspire new things, to get
+            new knowledge, to expand my horizons, to be proactive, to live in the present and go all the way.<br>
+            Today I work as an engineer for a cellular communication operator - PJSC "MegaFon". Things are going
+            well enough and often my boss puts me as an example of how to work other should. Maintenance, support
+            and implementation of industrial billing systems allowed me to get a broad view of how real-time systems
+            work, which a huge number of different subsystems need to interact seamlessly, in order to communication
+            is available to any person 24 hours a day, 7 days a week, understand the intricacies of configuring such
+            systems.<br>
+            Today I want to go further. Therefore, since 2017, I began to study such disciplines as relational
+            databases, Linux OS and software testing.
+            In early 2018, I enrolled at GeekBrains University at the department of web development on Python.
+            Experience in the company PJSC "MegaFon" and projects in GB University helped me to acquire the
+            following skills:<br>
+            <ul>
+                <li>Full stack development;</li>
+                <li>Project management as a team lead;</li>
+                <li>Configuration and implementation of industrial billing systems;</li>
+                <li>Automated testing.</li>
+            </ul>
+            With a list of technical skills and projects implemented by me, you can see on the page "My Skills"
+            (which includes links to my GitHub.com account and other internet resources on which information about
+            me is presented).<br>
+            Due to the fact that I'd like to be a developer in development company and dealing exclusively with my
+            favorite business I wrote this appeal. Change of professional activities and new tasks will help me to
+            apply the experience gained in the development, testing and supporting billing software. The transition
+            to a new stage is very important for me and for my family, my loved ones.<br>
+            I ask you to consider my appeal and give me a chance to come for an interview for a personal
+            acquaintance with your company.<br>
+            <br>
+            Yours faithfully,<br>
+            Ilia Kruglov
+        </p>
     </div>
-    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a> <!--<a href="{% url 'index' %}">Main page</a>-->
-</body>
-</html>
+</div>
+<a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a> <!--<a href="{% url 'index' %}">Main page</a>-->
+{% endblock %}
