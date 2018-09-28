@@ -49,7 +49,10 @@
             {% if tech_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
                 <ol>
                 {% for skill in tech_skills %}
-                    <li>{{ skill }}, rank: {{ skill.rank.name }}</li>
+                    <p>
+                    <li>{{ skill }}</li>
+                    Rank: {{ skill.rank.name }}
+                    </p>
                 {% endfor %}
                 </ol>
             {% else %}
