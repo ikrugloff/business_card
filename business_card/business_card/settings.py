@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'skills'  # Objects (my skills) will be saved in DB therefore they need a table
 ]
 
 MIDDLEWARE = [
