@@ -1,14 +1,10 @@
 from django.shortcuts import render
+from .models import Skill
 
 
 # Create your views here.
 def skills_view(request):
-    tech_skills = ['Python 3+',
-                   'Django 2+',
-                   'HTML/CSS',
-                   'SQL (Oracle SQL 11+, PostgreSQL 10+)',
-                   'Linux OS (RedHat 7+, CentOS 7+)'
-                   ]
+    tech_skills = Skill.objects.all()
     finished_cources = ['Red Hat System Administration I (RH124, RedHat)',
                         'Red Hat System Administration II (RH134, RedHat)',
                         'Python. Level 1 (GeekBrains.ru)',
