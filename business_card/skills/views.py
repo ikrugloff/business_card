@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Skill
+from .models import Skill, SkillRank
 
 
 # Create your views here.
@@ -21,3 +21,9 @@ def skills_view(request):
                         ]
     # my_skills = []  # To test if - else construction in skills.html
     return render(request, 'skills.html', {'tech_skills': tech_skills, 'finished_cources': finished_cources})
+
+
+def one_rank_view(request, rank_id):
+    rank = SkillRank.objects.get(id=rank_id)
+    skills = Skill.objects.filter(rank=rank)
+    return render(request, 'rank.html', {'rank': rank, 'skills': skills})
