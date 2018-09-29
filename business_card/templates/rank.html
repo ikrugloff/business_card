@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Rank
+{% endblock %}
+
+{% block bodyhtml %}
+    html {
+        background: url("/static/skills/bg_03_skills_los_angeles.jpg") no-repeat center fixed;
+        background-size: cover;
+        width: 35%
+    }
+
+    body {
+        color: white;
+    }
+{% endblock %}
+
+{% block button %}
+    {{ block.super }}
+{% endblock %}
+
+{% block button_style %}
+    .button_style {
+        background-color: Transparent;
+        color: white;
+        border: 2px solid #F68F62;
+    }
+{% endblock %}
+
+{% block button_hover %}
+    .button_style:hover {
+        background-color: #F68F62;
+        color: white;
+    }
+{% endblock %}
+
+{% block a_link %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+<div style="background-color:rgba(0, 0, 0, 0.5);">
+    <div>
+        <p>
+            <h3>
+                <p>All technologies with rank '{{ rank.name }}' which I now:</p>
+            </h3>
+            <ol>
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+            </ol>
+            <br>
+        </p>
+    </div>
+</div>
+<a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
+{% endblock %}
