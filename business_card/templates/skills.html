@@ -51,7 +51,7 @@
                 {% for skill in tech_skills %}
                     <p>
                     <li>{{ skill }}</li>
-                    Rank: {{ skill.rank.name }}
+                    Rank: <a href="{% url 'rank' rank_id=skill.rank.id %}">{{ skill.rank.name }}</a>
                     </p>
                 {% endfor %}
                 </ol>
