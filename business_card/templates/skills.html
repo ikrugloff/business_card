@@ -75,10 +75,15 @@
             <h3>
                 <p>Source codes of my projects:</p>
             </h3>
+                <!--<ol>-->
+                    <!--<li><a href="https://github.com/ikrugloff/business_card">Portfolio site</a></li>-->
+                    <!--<li><a href="https://github.com/ikrugloff/jim-messenger">Simple socket messenger</a></li>-->
+                    <!--<li><a href="https://github.com/ikrugloff/passvault">Program for storing passwords</a></li>-->
+                <!--</ol>-->
                 <ol>
-                    <li><a href="https://github.com/ikrugloff/business_card">Portfolio site</a></li>
-                    <li><a href="https://github.com/ikrugloff/jim-messenger">Simple socket messenger</a></li>
-                    <li><a href="https://github.com/ikrugloff/passvault">Program for storing passwords</a></li>
+                    {% for project in my_projects %}
+                    <li><a href={{ project.link }}>{{ project.name }}</a></li>
+                    {% endfor %}
                 </ol>
             <h3>
                 <p>My curriculum vitae:</p>
@@ -89,10 +94,5 @@
         </p>
     </div>
 </div>
-<!--<ol>-->
-    <!--{% for project in my_projects %}-->
-    <!--<li><a href={{ project.link }}>{{ project.name }}</a></li>-->
-    <!--{% endfor %}-->
-<!--</ol>-->
 <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 {% endblock %}

@@ -19,10 +19,13 @@ def skills_view(request):
                         'Introduction to Linux (stepik.org)',
                         'SQL for tester (software-testing.ru)'
                         ]
-    # my_projects = [{'name': 'Business card', 'link': 'https://github.com/ikrugloff/business_card'}
-    # ]
+    my_projects = [{'name': 'Business card', 'link': 'https://github.com/ikrugloff/business_card'},
+                   {'name': 'Socket messenger', 'link': 'https://github.com/ikrugloff/jim-messenger'},
+                   {'name': 'Password manager', 'link': 'https://github.com/ikrugloff/passvault'}
+                   ]
     # my_skills = []  # To test if - else construction in skills.html
-    return render(request, 'skills.html', {'tech_skills': tech_skills, 'finished_cources': finished_cources})
+    return render(request, 'skills.html', {'tech_skills': tech_skills, 'finished_cources': finished_cources,
+                                           'my_projects': my_projects})
 
 
 def one_rank_view(request, rank_id):
