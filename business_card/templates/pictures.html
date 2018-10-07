@@ -45,6 +45,8 @@
         </p>
         {% load static %}
         <img src="{% static 'pictures/me.jpg' %}" style="width:100%;height:100%;">
+        <p>Author: {{ picture.user.username }}</p>
+        <div>Did the admin write this: {{ picture.user.is_superuser }}</div>
     </div>
 </div>
 <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
