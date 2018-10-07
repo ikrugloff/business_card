@@ -4,4 +4,5 @@ from django.shortcuts import render
 def main_page_view(request):
     f_name = 'ilia'
     l_name = 'kruglov'
+    print('Current user: ', request.user)
     return render(request, 'index.html', {'first_name': f_name, 'last_name': l_name})  # Context dictionary
