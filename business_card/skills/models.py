@@ -25,9 +25,11 @@ class Skill(models.Model):
 >>> SkillRank.objects.all()
 <QuerySet [<SkillRank: Youngling>]>
 Как удалить один объект 'Youngling'???
+SkillRank.objects.all().delete()
+SkillRank.objects.get(name='').delete()
 #############
 >>> SkillRank.objects.all()
 <QuerySet [<SkillRank: Youngling>, <SkillRank: Padawan>, <SkillRank: Knight>, <SkillRank: Master>, <SkillRank: Grand Master>]>
 Создался PK начиная с цифры 2, как начать нумерацию с начала, если первый раз ошибся со значением???
-
+Не заморачиваться.
 """

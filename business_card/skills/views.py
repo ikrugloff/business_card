@@ -19,6 +19,8 @@ def skills_view(request):
                         'Introduction to Linux (stepik.org)',
                         'SQL for tester (software-testing.ru)'
                         ]
+    # my_projects = [{'name': 'Business card', 'link': 'https://github.com/ikrugloff/business_card'}
+    # ]
     # my_skills = []  # To test if - else construction in skills.html
     return render(request, 'skills.html', {'tech_skills': tech_skills, 'finished_cources': finished_cources})
 
@@ -26,4 +28,5 @@ def skills_view(request):
 def one_rank_view(request, rank_id):
     rank = SkillRank.objects.get(id=rank_id)
     skills = Skill.objects.filter(rank=rank)
+    # skills = Skill.objects.filter(rank__id=rank_id)  # alter
     return render(request, 'rank.html', {'rank': rank, 'skills': skills})
