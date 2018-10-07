@@ -1,12 +1,22 @@
 from django.shortcuts import render
 
+
 # Create your views here.
+def login_view(request):
+    if request.method == 'POST':
+        pass
+    else:
+        # GET
+        # нарисовать страницу где можно ввести данные
+        return render(request, 'login.html')
+
+
 def main_page_view(request):
     f_name = 'ilia'
     l_name = 'kruglov'
     print('Current user: ', request.user)
     print('Request type: ', request.method)
-    # print('Request parameters: ', params)
+    # print('Request parameters: ', params)  # TODO: Why it doesn't work?
 
     if request.method == 'GET':  # popular construction (in REST api more variants available) (29092019, 01:43:00)
         params = request.GET
