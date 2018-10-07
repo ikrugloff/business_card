@@ -1,5 +1,4 @@
 {#Любая страница проекта должна наследоваться от данной страницы, или от ее потомков#}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -83,24 +82,14 @@
 </head>
 <body>
     {% block body %}
-        Main code
-        {% if user.is_authenticated %}
-            Hello {{ user.username }}
-            <a href="{% url 'login' %}" class="button button_style"><b>Log Out</b></a>
-        {% else %}
-            <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
-            {% block authentication %}
-            <div>
-                <form method="post" action="/">
-                <!--<form method="get" action="/">-->
-                    {% csrf_token %}  {# w/o this token request won't work correctly. #}
-                    <input type="text" name="login" value="" placeholder="Login">
-                    <input type="password" name="password" value="" placeholder="Password">
-                    <button type="submit" class="button button_style"><b>Submit</b></button>
-                </form>
-            </div>
-            {% endblock %}
-        {% endif %}
+        {% block authentication %}
+            {% if user.is_authenticated %}
+                Hello {{ user.username }}<br>
+                <a href="{% url 'login' %}" class="button button_style"><b>Log Out</b></a>
+            {% else %}
+                <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
+            {% endif %}
+        {% endblock %}
     {% endblock %}
 </body>
 </html>

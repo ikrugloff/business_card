@@ -29,30 +29,31 @@
 {% endblock %}
 
 {% block body %}
-<div class="hero-image">
-    <div class="hero-text">
-        {% if user.is_authenticated %}
-            <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
-            <h3>And I'm a Programmer</h3>
-            Hello {{ user.username }}<br>
-            <br>
-            <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
-            <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
-            <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
-            <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
-            <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
-        {% else %}
-            <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
-            <h3>And I'm a Programmer</h3>
-            <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
-            <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
-            <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
-            <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
-            <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
-        {% endif %}
+    <div class="hero-image">
+        <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2> {# CSS method to change color locally. #}
+        <div class="hero-text">
+            {% if user.is_authenticated %}
+                <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
+                <h3>And I'm a Programmer</h3>
+                Hello {{ user.username }}<br>
+                <br>
+                <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
+                <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
+                <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
+                <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
+                <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
+            {% else %}
+                <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
+                <h3>And I'm a Programmer</h3>
+                <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
+                <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
+                <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
+                <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
+                <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
+            {% endif %}
+        </div>
+
     </div>
-    <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2> {# CSS method to change color locally. #}
-</div>
 <!--{% for post in posts %}-->
 <!--<h2>-->
     <!--{{ post.title }}-->
