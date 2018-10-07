@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}
+    Authorization
+{% endblock %}
+
+{% block bodyhtml %}
+    html {
+        background: url("/static/user/bg_06_user_orlando.jpg") no-repeat center fixed;
+        background-size: cover;
+        width: 35%
+    }
+
+    body {
+        color: white;
+    }
+{% endblock %}
+
+{% block button %}
+    {{ block.super }}
+{% endblock %}
+
+{% block button_style %}
+    .button_style {
+        background-color: Transparent;
+        color: blue;
+        border: 2px solid #044CAD;
+    }
+{% endblock %}
+
+{% block button_hover %}
+    .button_style:hover {
+        background-color: #044CAD;
+        color: white;
+    }
+{% endblock %}
+
+{% block body %}
+
+
+
+<div style="background-color:rgba(0, 0, 0, 0.0);">
+    <div>
+        <p>
+            <h1>
+                <p style="font-family:'Courier New'">Authorization</p>
+            </h1>
+            {% block authentication %} {# Why we should override auth form here??? #}
+                <form method="post" action="">
+                    {% csrf_token %} {# 02:04:00 #}
+                    <input type="text" name="login" value="" placeholder="Login">
+                    <input type="password" name="password" value=""> {# eq inputed data #}
+                    <button type="submit" class="button button_style"><b>Submit</b></button>
+                </form>
+            {% endblock %}
+        </p>
+    </div>
+</div>
+<a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+{% endblock %}
