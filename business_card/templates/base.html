@@ -95,9 +95,9 @@
         Main code
         {% block authentication %}
         <div>
-            <!--<form method="post" action="/user/login/">-->
-            <form method="get" action="/">
-                {% csrf_token %}
+            <form method="post" action="/">
+            <!--<form method="get" action="/">-->
+                {% csrf_token %}  {# w/o this token request won't work correctly. #}
                 <input type="text" name="login" value="" placeholder="Login">
                 <input type="password" name="password" value="" placeholder="Password">
                 <button type="submit" class="button button_style"><b>Submit</b></button>
