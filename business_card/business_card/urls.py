@@ -20,7 +20,7 @@ from about.views import about_view
 from skills.views import skills_view, one_rank_view
 from contacts.views import contacts_view
 from pictures.views import pictures_view
-from user.views import login_view
+from user.views import login_view, logout_view
 
 urlpatterns = [
     # path('business_card/', include('business_card.urls')),  # TODO: necessary to explain include()
@@ -31,5 +31,6 @@ urlpatterns = [
     path('skills/rank/<int:rank_id>/', one_rank_view, name='rank'),
     path('contacts/', contacts_view, name='contacts'),
     path('pictures/', pictures_view, name='pictures'),
-    path('login/', login_view, name='login')
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout')
 ]
