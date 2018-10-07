@@ -85,7 +85,7 @@
         {% block authentication %}
             {% if user.is_authenticated %}
                 Hello {{ user.username }}<br>
-                <a href="{% url 'login' %}" class="button button_style"><b>Log Out</b></a>
+                <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
             {% else %}
                 <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
             {% endif %}
