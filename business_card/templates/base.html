@@ -82,14 +82,14 @@
     </style>
 </head>
 <body>
-    {% block authentication %}
-        <form method="post" action="/user/login/">  # action= what does it mean???
-            {% csrf_token %}
-            <input type="text" name="login" value="" placeholder="Login">
-            <input type="password" name="password" value="" placeholder="Password">
-            <a href="{% url 'Pictures' %}" class="button button_style"><b>Submit</b></a>
-        </form>
-    {% endblock %}
+    <!--{% block authentication %}-->
+        <!--<form method="post" action="/user/login/">  # action= what does it mean???-->
+            <!--{% csrf_token %}-->
+            <!--<input type="text" name="login" value="" placeholder="Login">-->
+            <!--<input type="password" name="password" value="" placeholder="Password">-->
+            <!--<a href="{% url 'pictures' %}" class="button button_style"><b>Submit</b></a>-->
+        <!--</form>-->
+    <!--{% endblock %}-->
 
     {% block body %}
         Main code
