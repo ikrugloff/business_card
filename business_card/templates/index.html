@@ -37,11 +37,12 @@
         <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
         <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
         <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
+        <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
     </div>
     {% block authentication %}
         {{ block.super }}
     {% endblock %}
-    <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2>  # CSS method to change color locally.
+    <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2> {# CSS method to change color locally. #}
 </div>
 <!--{% for post in posts %}-->
 <!--<h2>-->
