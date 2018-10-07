@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include  # NB! Use include in prod projects
-from main_page.views import main_page_view, login_view
+from main_page.views import main_page_view
 from about.views import about_view
 from skills.views import skills_view, one_rank_view
 from contacts.views import contacts_view
 from pictures.views import pictures_view
+from user.views import login_view
 
 urlpatterns = [
     # path('business_card/', include('business_card.urls')),  # TODO: necessary to explain include()
