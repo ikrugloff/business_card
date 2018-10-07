@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include  # NB! Use include in prod projects
-from main_page.views import main_page_view
+from main_page.views import main_page_view, login_view
 from about.views import about_view
 from skills.views import skills_view, one_rank_view
 from contacts.views import contacts_view
@@ -29,5 +29,6 @@ urlpatterns = [
     path('skills/', skills_view, name='skills'),
     path('skills/rank/<int:rank_id>/', one_rank_view, name='rank'),
     path('contacts/', contacts_view, name='contacts'),
-    path('pictures/', pictures_view, name='pictures')
+    path('pictures/', pictures_view, name='pictures'),
+    path('login/', login_view, name='login')
 ]
