@@ -40,6 +40,11 @@
 {% endblock %}
 
 {% block body %}
+
+{% block authentication %}
+    {{ block.super }}
+{% endblock %}
+
 <div style="background-color:rgba(0, 0, 0, 0.5);">
     <div>
         <p>
