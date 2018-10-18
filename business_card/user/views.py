@@ -20,6 +20,9 @@ def login_view(request):
         if user:
             auth.login(request, user)
             return HttpResponseRedirect("/")
+        else:
+            incorrect_credentials = 'Wrong login name or password.'
+            return render(request, 'login.html', {'error': incorrect_credentials})
     else:
         # GET
         # нарисовать страницу где можно ввести данные
