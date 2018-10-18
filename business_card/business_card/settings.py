@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'main_page',
     'pictures',
     'skills',  # Objects (my skills) will be saved in DB therefore they need a table
-    'user'
+    'user',
+    'django_cleanup'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
