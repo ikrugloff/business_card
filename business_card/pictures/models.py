@@ -9,6 +9,7 @@ class Picture(models.Model):
     start_date = models.DateTimeField(auto_now=True)
     img = models.ImageField(upload_to='pictures', blank=False)  # How to avoid issues if already has a string w/o img?
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+    file = models.FileField(upload_to='files', blank=True)  # Dir 'files' will be created automatically
     # 58:50 29092018; null=True иначе не даст накатить
 
     def __str__(self):
