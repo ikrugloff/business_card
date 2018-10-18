@@ -9,4 +9,4 @@ def pictures_view(request):
 
 def pictures_model_view(request):
     pictures = Picture.objects.all()
-    return render(request, 'picture.html', {'objects': pictures})
+    return render(request, 'pictures.html', {'objects': pictures})

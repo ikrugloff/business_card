@@ -43,19 +43,10 @@
     <div style="background-color:rgba(0, 0, 0, 0.5);">
         <div>
             <h1 style="font-family:'Courier New'">Pictures</h1>
-            <ul>
-            {% for picture in objects %}
-                <li>
-                    <h2 style="font-family:'Courier New'">{{ picture.name }}</h2>
-                    <img src="{{ picture.img.url }}" width=90%>
-                </li>
-                <p>
-                    {{ picture.description }}
-                </p>
-                <p>Author: {{ picture.user.username }}</p>
-                <div>Did the admin write this: {{ picture.user.is_superuser }}</div>
-            {% endfor %}
-            </ul>
+            {% load static %}
+            <img src="{% static 'pictures/me.jpg' %}" style="width:90%;height:55%;">
+            <p>Author: {{ picture.user.username }}</p>
+            <div>Did the admin write this: {{ picture.user.is_superuser }}</div>
         </div>
     </div>
     <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
