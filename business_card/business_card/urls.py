@@ -33,8 +33,8 @@ urlpatterns = [
     path('skills/rank/<int:rank_id>/', one_rank_view, name='rank'),
     path('contacts/', contacts_view, name='contacts'),
     path('pictures/', pictures_model_view, name='pictures'),
-    path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout')
+    path('user/login/', login_view, name='login'),
+    path('user/logout/', logout_view, name='logout')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Only for dev-server!!!
