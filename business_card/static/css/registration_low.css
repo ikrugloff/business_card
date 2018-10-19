@@ -1,6 +1,5 @@
 html {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("/static/user/bg_06_user_orlando.jpg") no-repeat center fixed;
+    background: url("/static/user/bg_07_registration_low_honolulu.jpg") no-repeat center fixed;
     background-size: cover;
     width: 35%
     background-image:
@@ -27,11 +26,11 @@ body {
 
 .button_style {
     background-color: Transparent;
-    color: #FB9459;
-    border: 2px solid #FB9459;
+    color: #044CAD;
+    border: 2px solid #044CAD;
 }
 
 .button_style:hover {
-    background-color: #142736;
-    color: #FB9459;
+    background-color: #044CAD;
+    color: white;
 }

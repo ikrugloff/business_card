@@ -21,7 +21,7 @@ from about.views import about_view
 from skills.views import skills_view, one_rank_view
 from contacts.views import contacts_view
 from pictures.views import pictures_view, pictures_model_view
-from user.views import login_view, logout_view
+from user.views import login_view, logout_view, registration_low
 from django.conf import settings  # LifeHack!!! to add constants.
 
 urlpatterns = [
@@ -34,7 +34,8 @@ urlpatterns = [
     path('contacts/', contacts_view, name='contacts'),
     path('pictures/', pictures_model_view, name='pictures'),
     path('user/login/', login_view, name='login'),
-    path('user/logout/', logout_view, name='logout')
+    path('user/logout/', logout_view, name='logout'),
+    path('user/registration_low/', registration_low, name='registration_low')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Only for dev-server!!!
