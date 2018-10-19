@@ -6,7 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 def logout_view(request):
     auth.logout(request)
-    return HttpResponseRedirect("/login/")
+    return HttpResponseRedirect('/user/login/')
 
 
 def login_view(request):
