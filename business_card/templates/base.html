@@ -1,23 +1,25 @@
 {#Любая страница проекта должна наследоваться от данной страницы, или от ее потомков#}
 <html lang="en">
-<head>
-    {% block head %}
-    <meta charset="UTF-8">
-    <meta name="description" content="ikrugloff portfolio">  <!--What the reason to use <meta name=""-->
-    <meta name="author" content="Ilia Kruglov"> <!--What the reason to use <meta name="" -> CEO-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
-</head>
-<body>
-    {% block body %}
-        {% block authentication %}
-            {% if user.is_authenticated %}
-                Hello {{ user.username }}<br>
-                <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
-            {% else %}
-                <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
-            {% endif %}
+{% block html %}
+    <head>
+        {% block head %}
+        <meta charset="UTF-8">
+        <meta name="description" content="ikrugloff portfolio">  <!--What the reason to use <meta name=""-->
+        <meta name="author" content="Ilia Kruglov"> <!--What the reason to use <meta name="" -> CEO-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock %}
-    {% endblock %}
-</body>
+    </head>
+    <body>
+        {% block body %}
+            {% block authentication %}
+                {% if user.is_authenticated %}
+                    Hello {{ user.username }}<br>
+                    <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
+    </body>
+{% endblock %}
 </html>

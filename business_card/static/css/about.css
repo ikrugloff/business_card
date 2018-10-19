@@ -1,0 +1,35 @@
+html {
+            background: url("/static/about/bg_02_about_new_york.jpg") no-repeat center fixed;
+            background-size: cover;
+            width: 42%
+        }
+
+body {
+    color: white;
+}
+
+.button {
+    background-color: Transparent;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button_style {
+    background-color: Transparent;
+    color: white;
+    border: 2px solid #F0F8FF;
+}
+
+.button_style:hover {
+    background-color: #F0F8FF;
+    color: gray;
+}

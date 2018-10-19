@@ -1,47 +1,48 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block head %}
-    <title>
-        Main page
-    </title>
+{% block html %}
+    {% block head %}
+        <title>
+            Main page
+        </title>
 
-    <link href="{% static 'css/index.css' %}" rel="stylesheet">
-{% endblock %}
+        <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    {% endblock %}
 
+    {% block body %}
+        <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        {# linear-gradient затемение поверх картинки #}
+        url({{ background }});">
+            <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2> {# CSS method to change color locally. #}
+            <div class="hero-text">
+                {% if user.is_authenticated %}
+                    <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
+                    <h3>And I'm a Programmer</h3>
+                    Hello {{ user.username }}<br>
+                    <br>
+                    <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
+                    <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
+                    <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
+                    <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
+                    <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
+                {% else %}
+                    <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
+                    <h3>And I'm a Programmer</h3>
+                    <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
+                    <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
+                    <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
+                    <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
+                    <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
+                {% endif %}
+            </div>
 
-{% block body %}
-    <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    {# linear-gradient затемение поверх картинки #}
-    url({{ background }});">
-        <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2> {# CSS method to change color locally. #}
-        <div class="hero-text">
-            {% if user.is_authenticated %}
-                <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
-                <h3>And I'm a Programmer</h3>
-                Hello {{ user.username }}<br>
-                <br>
-                <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
-                <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
-                <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
-                <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
-                <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
-            {% else %}
-                <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
-                <h3>And I'm a Programmer</h3>
-                <a href="{% url 'about' %}" class="button button_style"><b>About me</b></a>
-                <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
-                <a href="{% url 'contacts' %}" class="button button_style"><b>Contacts</b></a>
-                <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
-                <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
-            {% endif %}
         </div>
-
-    </div>
-<!--{% for post in posts %}-->
-<!--<h2>-->
-    <!--{{ post.title }}-->
-<!--</h2>-->
-<!--<p>Category: {{ post.category.name }}</p>-->
-<!--{% endfor %}-->
+    <!--{% for post in posts %}-->
+    <!--<h2>-->
+        <!--{{ post.title }}-->
+    <!--</h2>-->
+    <!--<p>Category: {{ post.category.name }}</p>-->
+    <!--{% endfor %}-->
+    {% endblock %}
 {% endblock %}

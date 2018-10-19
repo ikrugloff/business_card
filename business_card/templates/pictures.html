@@ -1,63 +1,40 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %}
-    Pictures
-{% endblock %}
+{% block html %}
+    {% block head %}
+        <title>
+            Pictures
+        </title>
 
-{% block bodyhtml %}
-    html {
-        background: url("/static/pictures/bg_05_pictures_washington.jpg") no-repeat center fixed;
-        background-size: cover;
-        width: 30%
-    }
-
-    body {
-        color: white;
-    }
-{% endblock %}
-
-{% block button %}
-    {{ block.super }}
-{% endblock %}
-
-{% block button_style %}
-    .button_style {
-        background-color: Transparent;
-        color: white;
-        border: 2px solid #E9D1A5;
-    }
-{% endblock %}
-
-{% block button_hover %}
-    .button_style:hover {
-        background-color: #E9D1A5;
-        color: black;
-    }
-{% endblock %}
-
-{% block body %}
-    {% block authentication %}
-        {{ block.super }}
+        <link href="{% static 'css/pictures.css' %}" rel="stylesheet">
     {% endblock %}
 
-    <div style="background-color:rgba(0, 0, 0, 0.5);">
-        <div>
-            <h1 style="font-family:'Courier New'">Pictures</h1>
-            <ul>
-            {% for picture in objects %}
-                <li>
-                    <h2 style="font-family:'Courier New'">{{ picture.name }}</h2>
-                    <img src="{{ picture.img.url }}" width=90%>
-                    <a href="{{ picture.file.url }}">Attached file</a>
-                </li>
-                <p>
-                    {{ picture.description }}
-                </p>
-                <p>Author: {{ picture.user.username }}</p>
-                <div>Did the admin write this: {{ picture.user.is_superuser }}</div>
-            {% endfor %}
-            </ul>
+    {% block body %}
+        {% block authentication %}
+            {{ block.super }}
+        {% endblock %}
+
+        <div style="background-color:rgba(0, 0, 0, 0.5);">
+            <div>
+                <h1 style="font-family:'Courier New'">Pictures</h1>
+                <ul>
+                {% for picture in objects %}
+                    <li>
+                        <h2 style="font-family:'Courier New'">{{ picture.name }}</h2>
+                        <img src="{{ picture.img.url }}" width=90%>
+                        <a href="{{ picture.file.url }}">Attached file</a>
+                    </li>
+                    <p>
+                        {{ picture.description }}
+                    </p>
+                    <p>Author: {{ picture.user.username }}</p>
+                    <div>Did the admin write this: {{ picture.user.is_superuser }}</div>
+                {% endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
-    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+    {% endblock %}
 {% endblock %}
+

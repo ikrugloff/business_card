@@ -1,0 +1,35 @@
+html {
+    background: url("/static/contacts/bg_04_contacts_las_vegas.jpg") no-repeat center fixed;
+    background-size: cover;
+    width: 40%
+}
+
+body {
+    color: white;
+}
+
+.button {
+    background-color: Transparent;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button_style {
+    background-color: Transparent;
+    color: silver;
+    border: 2px solid #434F89;
+}
+
+.button_style:hover {
+    background-color: #434F89;
+    color: gold;
+}
