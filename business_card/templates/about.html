@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %}
-    About me
+{% block head %}
+    <title>
+        About me
+    </title>
+
+    <link href="{% static 'css/my.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block bodyhtml %}

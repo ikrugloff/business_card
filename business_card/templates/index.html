@@ -1,35 +1,19 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %}
-    Main page
+{% block head %}
+    <title>
+        Main page
+    </title>
+
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
 {% endblock %}
 
-{% block bodyhtml %}
-    {{ block.super }}
-{% endblock %}
-
-{% block hero-image %}
-    {{ block.super }}
-{% endblock %}
-
-{% block hero-text %}
-    {{ block.super }}
-{% endblock %}
-
-{% block button %}
-    {{ block.super }}
-{% endblock %}
-
-{% block button_style %}
-    {{ block.super }}
-{% endblock %}
-
-{% block button_hover %}
-    {{ block.super }}
-{% endblock %}
 
 {% block body %}
-    <div class="hero-image">
+    <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    {# linear-gradient затемение поверх картинки #}
+    url({{ background }});">
         <h2 style="color:#FFFFFF">Request parameters: {{ params }}</h2> {# CSS method to change color locally. #}
         <div class="hero-text">
             {% if user.is_authenticated %}
