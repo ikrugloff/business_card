@@ -18,13 +18,13 @@
                         <p style="font-family:'Courier New'">Registration</p>
                     </h1>
                     <form method="post" role="form" action="/user/registration/">
-                        {% include 'inc-registration_form.html' %}
+                        {% include 'inc-registration_form.html' %}  {# ilia14102018 1:20:00 #}
                         {# {% csrf_token %} #}  {# Commented that in 21 line it's already included #}
-                        <table>
-                            {{ form.as_table }}
-                            {# {{ form.as_p }} #}  {# Another style #}
-                            {# {{ form.as_ul }} #}  {# Another style #}
-                        </table>
+                        {# <table> #}  {# Commented that in 21 line it's already included #}
+                            {# {{ form.as_table }} #}  {# Commented that in 21 line it's already included #}
+                            {# {{ form.as_p }} #}  {# Another style #}  {# Commented that in 21 line it's already included #}
+                            {# {{ form.as_ul }} #}  {# Another style #}  {# Commented that in 21 line it's already included #}
+                        {# </table> #}  {# Commented that in 21 line it's already included #}
                         <input type="submit" value="Create the account">
                     </form>
                 </p>
