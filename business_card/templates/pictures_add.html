@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block html %}
+    {% block head %}
+        <title>
+            Add new picture
+        </title>
+
+        <link href="{% static 'css/pictures.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block body %}
+        <div style="background-color:rgba(0, 0, 0, 0.0);">
+            <div>
+                <p>
+                    <h1>
+                        <p style="font-family:'Courier New'">Add new picture</p>
+                    </h1>
+                    <form method="post" role="form" action="/pictures_add/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                        <input type="submit" value="Add the picture">
+                    </form>
+                </p>
+            </div>
+        </div>
+        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+    {% endblock %}
+{% endblock %}

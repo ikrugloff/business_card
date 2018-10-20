@@ -23,7 +23,9 @@
                     <li>
                         <h2 style="font-family:'Courier New'">{{ picture.name }}</h2>
                         <img src="{{ picture.img.url }}" width=90%>
-                        <a href="{{ picture.file.url }}">Attached file</a>
+                        {% if picture.file %}
+                            <a href="{{ picture.file.url }}">Attached file</a>
+                        {% endif %}
                     </li>
                     <p>
                         {{ picture.description }}
@@ -35,6 +37,7 @@
             </div>
         </div>
         <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+        <a href="{% url 'pictures_add' %}" class="button button_style"><b>Add new picture</b></a>
     {% endblock %}
 {% endblock %}
 

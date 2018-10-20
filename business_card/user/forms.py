@@ -23,7 +23,7 @@ class MyRegistrationForm(UserCreationForm):
         fields = ('__all__')
 
 
-class MyGemsForm(forms.Form):
+class MyGemsForm(forms.Form): # Форма, не связанная с моделью (нужна будет доп обработка во вьюхе)
     username = forms.SelectMultiple()
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
