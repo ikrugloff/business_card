@@ -6,6 +6,9 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from .forms import MyRegistrationForm
+
+
 def logout_view(request):
     auth.logout(request)
     return HttpResponseRedirect('/user/login/')
@@ -60,3 +63,20 @@ def registration_low(request):
         user.save()
         return HttpResponseRedirect("/")
     return render(request, 'registration_low.html')
+
+
+def registration(request):
+    # 2 запроса get, post
+    if request.method == 'POST':
+        # передаем данные в форму
+        form = MyRegistrationForm(request.POST)  # Don't forget import your model
+        # форма сама себя проверят на ошибки
+        if form.is_valid():
+            # сама себя умеет сохранять
+            form.save()
+            return HttpResponseRedirect('/')
+        # если форма не валидна
+        context = {'form': form}
+        return render(request, 'registration.html', context)
+    context = {'form': MyRegistrationForm()}
+    return render(request, 'registration.html', context)

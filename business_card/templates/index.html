@@ -27,6 +27,7 @@
                     <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
                     <a href="{% url 'logout' %}" class="button button_style"><b>Log Out</b></a>
                     <a href="{% url 'registration_low' %}" class="button button_style"><b>Registration</b></a>
+                    <a href="{% url 'registration' %}" class="button button_style"><b>DjFormsReg</b></a>
                 {% else %}
                     <h1 style="font-size:50px">I am {{ first_name | title }} {{ last_name | title }}</h1> <!--template filter-->
                     <h3>And I'm a Programmer</h3>
@@ -36,6 +37,7 @@
                     <a href="{% url 'pictures' %}" class="button button_style"><b>Pictures</b></a>
                     <a href="{% url 'login' %}" class="button button_style"><b>Log In</b></a>
                     <a href="{% url 'registration_low' %}" class="button button_style"><b>Registration</b></a>
+                    <a href="{% url 'registration' %}" class="button button_style"><b>DjFormsReg</b></a>
                 {% endif %}
             </div>
 

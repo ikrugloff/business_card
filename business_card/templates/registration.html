@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block html %}
+    {% block head %}
+        <title>
+            Registration
+        </title>
+
+        <link href="{% static 'css/registration_low.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block body %}
+        <div style="background-color:rgba(0, 0, 0, 0.0);">
+            <div>
+                <p>
+                    <h1>
+                        <p style="font-family:'Courier New'">Registration</p>
+                    </h1>
+                    <form method="post" role="form" action="/user/registration/">
+                        {% include 'inc-registration_form.html' %}
+                        {# {% csrf_token %} #}  {# Commented that in 21 line it's already included #}
+                        <table>
+                            {{ form.as_table }}
+                            {# {{ form.as_p }} #}  {# Another style #}
+                            {# {{ form.as_ul }} #}  {# Another style #}
+                        </table>
+                        <input type="submit" value="Create the account">
+                    </form>
+                </p>
+            </div>
+        </div>
+        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
+    {% endblock %}
+{% endblock %}
