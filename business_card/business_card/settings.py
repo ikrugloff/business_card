@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about',
-    'contacts',
+    'contacts',  # The same: 'contacts.apps.ContactsConfig'
     'main_page',
     'pictures',
     'skills',  # Objects (my skills) will be saved in DB therefore they need a table
     'user',
-    'django_cleanup'
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +134,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

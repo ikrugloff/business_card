@@ -19,7 +19,7 @@ from django.urls import path, include  # NB! Use include in prod projects
 from main_page.views import main_page_view
 from about.views import about_view
 from skills.views import skills_view, one_rank_view
-from contacts.views import contacts_view
+from contacts.views import contacts_view, emailView, successView
 from pictures.views import pictures_view, pictures_model_view, pictures_add_view
 from user.views import login_view, logout_view, registration_low, registration
 from django.conf import settings  # LifeHack!!! to add constants.
@@ -32,6 +32,8 @@ urlpatterns = [
     path('skills/', skills_view, name='skills'),
     path('skills/rank/<int:rank_id>/', one_rank_view, name='rank'),
     path('contacts/', contacts_view, name='contacts'),
+    path('contacts/email/', emailView, name='email'),
+    path('contacts/success/', successView, name='success'),
     path('pictures/', pictures_model_view, name='pictures'),
     path('pictures/pictures_add/', pictures_add_view, name='pictures_add'),
     path('user/login/', login_view, name='login'),

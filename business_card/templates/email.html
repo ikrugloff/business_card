@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    Contacts
+    Email Me
 {% endblock %}
 
 {% block css %}
@@ -14,10 +14,21 @@
 
     <div style="background-color:rgba(0, 0, 0, 0.5);">
         <h1>
-            <p style="font-family:'Courier New'">Contacts</p>  {# style= old method of formatting #}
+            <p style="font-family:'Courier New'">Email Me</p>  {# style= old method of formatting #}
         </h1>
 
-        <a href="{% url 'email' %}" class="button button_style"><b>Send email</b></a>
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_p }}
+            </table>
+            <div class="form-actions">
+              <button type="submit">Send</button>
+            </div>
+        </form>
     </div>
     <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 {% endblock %}
+
+
+
