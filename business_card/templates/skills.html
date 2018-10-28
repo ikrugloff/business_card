@@ -1,74 +1,70 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block html %}
-    {% block head %}
-        <title>
-            My skills
-        </title>
+{% block title %}
+    My skills
+{% endblock %}
 
-        <link href="{% static 'css/skills.css' %}" rel="stylesheet">
-    {% endblock %}
+{% block css %}
+    <link href="{% static 'css/skills.css' %}" rel="stylesheet">
+{% endblock %}
 
-    {% block body %}
-        {% block authentication %}
-            {{ block.super }}
-        {% endblock %}
+{% block body %}
+    {% include 'inc-login.html' %}
 
-        <div style="background-color:rgba(0, 0, 0, 0.5);">
-            <div>
-                <p>
-                    <h3>
-                        <p>Technologies that I learned and use in development:</p>
-                    </h3>
-                    {% if tech_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
-                        <ol>
-                        {% for skill in tech_skills %}
-                            <p>
-                            <li>{{ skill }}</li>
-                            Rank: <a href="{% url 'rank' rank_id=skill.rank.id %}">{{ skill.rank.name }}</a>
-                            </p>
+    <div style="background-color:rgba(0, 0, 0, 0.5);">
+        <div>
+            <p>
+                <h3>
+                    <p>Technologies that I learned and use in development:</p>
+                </h3>
+                {% if tech_skills %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
+                    <ol>
+                    {% for skill in tech_skills %}
+                        <p>
+                        <li>{{ skill }}</li>
+                        Rank: <a href="{% url 'rank' rank_id=skill.rank.id %}">{{ skill.rank.name }}</a>
+                        </p>
+                    {% endfor %}
+                    </ol>
+                {% else %}
+                    Where's my skills?!
+                    <br>
+                {% endif %}
+                <h3>
+                    <p>List of the courses I have passed:</p>
+                </h3>
+                {% if finished_cources %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
+                    <ol>
+                    {% for course in finished_cources %}
+                        <li>{{ course }}</li>
+                    {% endfor %}
+                    </ol>
+                {% else %}
+                    Where's my courses?!
+                    <br>
+                {% endif %}
+                <h3>
+                    <p>Source codes of my projects:</p>
+                </h3>
+                    <!--<ol>-->
+                        <!--<li><a href="https://github.com/ikrugloff/business_card">Portfolio site</a></li>-->
+                        <!--<li><a href="https://github.com/ikrugloff/jim-messenger">Simple socket messenger</a></li>-->
+                        <!--<li><a href="https://github.com/ikrugloff/passvault">Program for storing passwords</a></li>-->
+                    <!--</ol>-->
+                    <ol>
+                        {% for project in my_projects %}
+                        <li><a href={{ project.link }}>{{ project.name }}</a></li>
                         {% endfor %}
-                        </ol>
-                    {% else %}
-                        Where's my skills?!
-                        <br>
-                    {% endif %}
-                    <h3>
-                        <p>List of the courses I have passed:</p>
-                    </h3>
-                    {% if finished_cources %} <!--cycle is convenient to display a large number of goods or pictures (for example)-->
-                        <ol>
-                        {% for course in finished_cources %}
-                            <li>{{ course }}</li>
-                        {% endfor %}
-                        </ol>
-                    {% else %}
-                        Where's my courses?!
-                        <br>
-                    {% endif %}
-                    <h3>
-                        <p>Source codes of my projects:</p>
-                    </h3>
-                        <!--<ol>-->
-                            <!--<li><a href="https://github.com/ikrugloff/business_card">Portfolio site</a></li>-->
-                            <!--<li><a href="https://github.com/ikrugloff/jim-messenger">Simple socket messenger</a></li>-->
-                            <!--<li><a href="https://github.com/ikrugloff/passvault">Program for storing passwords</a></li>-->
-                        <!--</ol>-->
-                        <ol>
-                            {% for project in my_projects %}
-                            <li><a href={{ project.link }}>{{ project.name }}</a></li>
-                            {% endfor %}
-                        </ol>
-                    <h3>
-                        <p>My curriculum vitae:</p>
-                    </h3>
-                        <ul>
-                            <li><a href="https://nn.hh.ru/resume/d4298194ff03c8a7620039ed1f6c6e66747351">hh.ru resume</a></li>
-                        </ul>
-                </p>
-            </div>
+                    </ol>
+                <h3>
+                    <p>My curriculum vitae:</p>
+                </h3>
+                    <ul>
+                        <li><a href="https://nn.hh.ru/resume/d4298194ff03c8a7620039ed1f6c6e66747351">hh.ru resume</a></li>
+                    </ul>
+            </p>
         </div>
-        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
-    {% endblock %}
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 {% endblock %}

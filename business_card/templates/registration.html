@@ -1,35 +1,33 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block html %}
-    {% block head %}
-        <title>
-            Registration
-        </title>
+{% block title %}
+    Registration
+{% endblock %}
 
-        <link href="{% static 'css/registration_low.css' %}" rel="stylesheet">
-    {% endblock %}
+{% block css %}
+    <link href="{% static 'css/registration_low.css' %}" rel="stylesheet">
+{% endblock %}
 
-    {% block body %}
-        <div style="background-color:rgba(0, 0, 0, 0.0);">
-            <div>
-                <p>
-                    <h1>
-                        <p style="font-family:'Courier New'">Registration</p>
-                    </h1>
-                    <form method="post" role="form" action="/user/registration/">
-                        {% include 'inc-registration_form.html' %}  {# ilia14102018 1:20:00 #}
-                        {# {% csrf_token %} #}  {# Commented that in 21 line it's already included #}
-                        {# <table> #}  {# Commented that in 21 line it's already included #}
-                            {# {{ form.as_table }} #}  {# Commented that in 21 line it's already included #}
-                            {# {{ form.as_p }} #}  {# Another style #}  {# Commented that in 21 line it's already included #}
-                            {# {{ form.as_ul }} #}  {# Another style #}  {# Commented that in 21 line it's already included #}
-                        {# </table> #}  {# Commented that in 21 line it's already included #}
-                        <input type="submit" value="Create the account">
-                    </form>
-                </p>
-            </div>
+{% block body %}
+    <div style="background-color:rgba(0, 0, 0, 0.0);">
+        <div>
+            <p>
+                <h1>
+                    <p style="font-family:'Courier New'">Registration</p>
+                </h1>
+                <form method="post" role="form" action="/user/registration/">
+                    {% include 'inc-registration_form.html' %}  {# ilia14102018 1:20:00 #}
+                    {# {% csrf_token %} #}  {# Commented that in 21 line it's already included #}
+                    {# <table> #}  {# Commented that in 21 line it's already included #}
+                        {# {{ form.as_table }} #}  {# Commented that in 21 line it's already included #}
+                        {# {{ form.as_p }} #}  {# Another style #}  {# Commented that in 21 line it's already included #}
+                        {# {{ form.as_ul }} #}  {# Another style #}  {# Commented that in 21 line it's already included #}
+                    {# </table> #}  {# Commented that in 21 line it's already included #}
+                    <input type="submit" value="Create the account">
+                </form>
+            </p>
         </div>
-        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
-    {% endblock %}
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 {% endblock %}

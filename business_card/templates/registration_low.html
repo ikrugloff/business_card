@@ -1,52 +1,50 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block html %}
-    {% block head %}
-        <title>
-            Registration
-        </title>
+{% block title %}
+    Registration
+{% endblock %}
 
-        <link href="{% static 'css/registration_low.css' %}" rel="stylesheet">
-    {% endblock %}
+{% block css %}
+    <link href="{% static 'css/registration_low.css' %}" rel="stylesheet">
+{% endblock %}
 
-    {% block body %}
-        <div style="background-color:rgba(0, 0, 0, 0.0);">
-            <div>
-                <p>
-                    <h1>
-                        <p style="font-family:'Courier New'">Registration</p>
-                    </h1>
-                    {% if reg_errors %}
-                        <ul>
-                        {% for key, value in reg_errors.items %}
-                            <li>{{ key }} - {{ value }}</li>
-                        {% endfor %}
-                        </ul>
-                    {% endif %}
+{% block body %}
+    <div style="background-color:rgba(0, 0, 0, 0.0);">
+        <div>
+            <p>
+                <h1>
+                    <p style="font-family:'Courier New'">Registration</p>
+                </h1>
+                {% if reg_errors %}
+                    <ul>
+                    {% for key, value in reg_errors.items %}
+                        <li>{{ key }} - {{ value }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
 
-                    <form method="post" role="form" action="/user/registration_low/">
-                    {% csrf_token %}
-                        <p>
-                            <input type="text" name="name" placeholder="Enter Name" required>
-                        </p>
-                        <p>
-                            <input type="email" name="email" placeholder="Enter Email" required>
-                        </p>
-                        <p>
-                            <input type="email" name="confirm_email" placeholder="Confirm Email" required>
-                        </p>
-                        <p>
-                            <input type="password" name="password" placeholder="Enter password" required>
-                        </p>
-                        <p>
-                            <input type="password" name="confirm_password" placeholder="Enter password again" required>
-                        </p>
-                        <button type="submit" name="submit">Send</button>
-                    </form>
-                </p>
-            </div>
+                <form method="post" role="form" action="/user/registration_low/">
+                {% csrf_token %}
+                    <p>
+                        <input type="text" name="name" placeholder="Enter Name" required>
+                    </p>
+                    <p>
+                        <input type="email" name="email" placeholder="Enter Email" required>
+                    </p>
+                    <p>
+                        <input type="email" name="confirm_email" placeholder="Confirm Email" required>
+                    </p>
+                    <p>
+                        <input type="password" name="password" placeholder="Enter password" required>
+                    </p>
+                    <p>
+                        <input type="password" name="confirm_password" placeholder="Enter password again" required>
+                    </p>
+                    <button type="submit" name="submit">Send</button>
+                </form>
+            </p>
         </div>
-        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
-    {% endblock %}
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 {% endblock %}

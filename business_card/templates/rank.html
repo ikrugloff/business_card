@@ -1,31 +1,29 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block html %}
-    {% block head %}
-        <title>
-            Rank
-        </title>
+{% block title %}
+    Rank
+{% endblock %}
 
-        <link href="{% static 'css/rank.css' %}" rel="stylesheet">
-    {% endblock %}
+{% block css %}
+    <link href="{% static 'css/rank.css' %}" rel="stylesheet">
+{% endblock %}
 
-    {% block body %}
-    <div style="background-color:rgba(0, 0, 0, 0.5);">
-        <div>
-            <p>
-                <h3>
-                    <p>All technologies with rank '{{ rank.name }}' which I now:</p>
-                </h3>
-                <ol>
-                {% for skill in skills %}
-                    <li>{{ skill }}</li>
-                {% endfor %}
-                </ol>
-                <br>
-            </p>
-        </div>
+{% block body %}
+<div style="background-color:rgba(0, 0, 0, 0.5);">
+    <div>
+        <p>
+            <h3>
+                <p>All technologies with rank '{{ rank.name }}' which I now:</p>
+            </h3>
+            <ol>
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+            </ol>
+            <br>
+        </p>
     </div>
-    <a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
-    {% endblock %}
+</div>
+<a href="{% url 'skills' %}" class="button button_style"><b>My skills</b></a>
 {% endblock %}

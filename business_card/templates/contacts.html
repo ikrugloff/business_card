@@ -1,29 +1,25 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block html %}
-    {% block head %}
-        <title>
-            Contacts
-        </title>
+{% block title %}
+    Contacts
+{% endblock %}
 
-        <link href="{% static 'css/contacts.css' %}" rel="stylesheet">
-    {% endblock %}
+{% block css %}
+    <link href="{% static 'css/contacts.css' %}" rel="stylesheet">
+{% endblock %}
 
-    {% block body %}
-        {% block authentication %}
-            {{ block.super }}
-        {% endblock %}
+{% block body %}
+    {% include 'inc-login.html' %}
 
-        <div style="background-color:rgba(0, 0, 0, 0.5);">
-            <div>
-                <p>
-                    <h1>
-                        <p style="font-family:'Courier New'">Contacts</p>  {# style= old method of formatting #}
-                    </h1>
-                </p>
-            </div>
+    <div style="background-color:rgba(0, 0, 0, 0.5);">
+        <div>
+            <p>
+                <h1>
+                    <p style="font-family:'Courier New'">Contacts</p>  {# style= old method of formatting #}
+                </h1>
+            </p>
         </div>
-        <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
-    {% endblock %}
+    </div>
+    <a href="{% url 'index' %}" class="button button_style"><b>Main page</b></a>
 {% endblock %}
